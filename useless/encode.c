@@ -13,20 +13,20 @@ int main() {
 
     while (c != EOF) {
         switch (c) {
-        case 9:
-            putchar(92);
-            putchar(116);
-            break;
-        case 8:
-            putchar(92);
-            putchar(98);
-            break;
-        case 92:
-            putchar(92);
-            putchar(92);
-            break;
-        default:
-            putchar(c);
+            case 9:
+                putchar(92);
+                putchar(116);
+                break;
+            case 8:
+                putchar(92);
+                putchar(98);
+                break;
+            case 92:
+                putchar(92);
+                putchar(92);
+                break;
+            default:
+                putchar(c);
         }
         c = getchar();
     }

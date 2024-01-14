@@ -8,15 +8,15 @@ int main() {
 
     while (c != EOF) {
         switch (c) {
-        case '\n':
-            ++line;
-            break;
-        case '\t':
-            ++tab;
-            break;
-        case ' ':
-            ++blank;
-            break;
+            case '\n':
+                ++line;
+                break;
+            case '\t':
+                ++tab;
+                break;
+            case ' ':
+                ++blank;
+                break;
         }
         printf("Lines: %d, Tabs: %d, Blanks: %d.\n", line, tab, blank);
         c = getchar();
