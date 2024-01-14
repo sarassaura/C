@@ -60,7 +60,7 @@ int main() {
 
         for (int i = 0; i < lines; i++) {
             for (int j = 0; j < columns; j++) {
-                if (length[freq[j]] != 0) {
+                if (length[freq[j]] == (lines - i)) {
                     printf("%lc", (wint_t)9608);
                     printf("%lc", (wint_t)9608);
                     printf("%lc", (wint_t)9608);
