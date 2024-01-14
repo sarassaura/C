@@ -3,3 +3,5 @@
 
 useless/*
 !useless/*.c
+
+tempCodeRunnerFile.c
