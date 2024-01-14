@@ -7,18 +7,15 @@ int main() {
     int c = -10;
     int length[25];
     int freq[25];
-    int letters = 0;
-    char result[] = "\0";
-    int columns = 0;
-    int lines = 0;
-
-    for (int i = 0; i < 25; i++) {
-        length[i] = 0;
-        freq[i] = 0;
-    }
+    int letters, columns, lines;
 
     while (c != EOF) {
+        for (int i = 0; i < 25; i++) {
+            length[i] = 0;
+            freq[i] = 0;
+        }
         c = getchar();
+        letters = columns = lines = 0;
 
         while (c != 10) {
             while (c != 9 && c != 32 && c != 10) {
@@ -83,10 +80,6 @@ int main() {
         }
 
         printf("\n");
-
-        for (int i = 0; i < 25; i++) {
-            length[i] = 0;
-        }
     }
 
     return 0;
