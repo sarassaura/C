@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAXLINE 1000
+#define MAXLINE 3
 
 int getLine(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -10,15 +10,26 @@ int main() {
     char line[MAXLINE];
     char longest[MAXLINE];
 
+    for (int i = 0; i < MAXLINE; i++) {
+        line[i] = 0;
+        longest[i] = 0;
+    }
+
     max = 0;
 
     printf("Enter Ctrl+d to End Of File (at the beggning of line)\n\n");
 
-    while ((len = getLine(line, MAXLINE)) > 0) {
+    len = getLine(line, MAXLINE);
+
+    while (len > 0) {
         if (len > max) {
             max = len;
             copy(longest, line);
         }
+        for (int i = 0; i < MAXLINE; i++) {
+            line[i] = 0;
+        }
+        len = getLine(line, MAXLINE);
     }
 
     if (max > 0) {
@@ -34,14 +45,16 @@ int getLine(char s[], int lim) {
     if (c != EOF) {
         c = getchar();
     }
-    while (c != 10 && c != EOF && i < lim - 1) {
-        s[i] = c;
+    while (c != 10 && c != EOF) {
+        if (i < lim - 2) {
+            s[i] = c;
+        }
         ++i;
         c = getchar();
     }
 
     if (c == 10) {
-        s[i] = c;
+        s[i] = '\n';
         ++i;
     }
     s[i] = '\0';
