@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAXLINE 3
+#define MAXLINE 10
 
 int getLine(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -40,7 +40,7 @@ int main() {
 }
 
 int getLine(char s[], int lim) {
-    int c, i = 0;
+    int c = -123, i = 0, t = 0;
 
     if (c != EOF) {
         c = getchar();
@@ -48,16 +48,18 @@ int getLine(char s[], int lim) {
     while (c != 10 && c != EOF) {
         if (i < lim - 2) {
             s[i] = c;
+            ++t;
         }
         ++i;
         c = getchar();
     }
 
     if (c == 10) {
-        s[i] = '\n';
+        s[t] = '\n';
+        ++t;
         ++i;
     }
-    s[i] = '\0';
+    s[t] = '\0';
     return i;
 }
 
