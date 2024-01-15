@@ -18,7 +18,7 @@ int main() {
         letters = columns = lines = 0;
 
         while (c != 10) {
-            while (c != 9 && c != 32 && c != 10) {
+            while (c != 9 && c != 32 && c != 10 && c != EOF) {
                 ++letters;
                 c = getchar();
             }
@@ -26,7 +26,7 @@ int main() {
             ++length[letters];
             letters = 0;
 
-            if (c != 10) {
+            if (c != 10 && c != EOF) {
                 c = getchar();
             }
         }

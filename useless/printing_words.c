@@ -6,7 +6,7 @@ int main() {
     c = getchar();
 
     while (c != EOF) {
-        while (c != ' ' && c != '\n' && c != '\t') {
+        while (c != ' ' && c != '\n' && c != '\t' && c != EOF) {
             putchar(c);
             c = getchar();
         }

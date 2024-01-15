@@ -16,7 +16,9 @@ int main() {
             blank = 0;
         }
         putchar(c);
-        c = getchar();
+        if (c != EOF) {
+            c = getchar();
+        }
     }
 
     return 0;

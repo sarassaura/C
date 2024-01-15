@@ -21,7 +21,7 @@ int main() {
             freq[i] = 0;
         }
 
-        while (c != 10) {
+        while (c != 10 && c != EOF) {
             ++chars[c];
             c = getchar();
         }
