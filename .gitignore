@@ -1,7 +1,7 @@
 .vscode
 .clang-format
 
-useless/*
-!useless/*.c
+The C Programming Language/*/*
+!The C Programming Language/*/*.c
 
 tempCodeRunnerFile.c
