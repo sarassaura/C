@@ -17,8 +17,8 @@ int main() {
     printf("The range of signed short is:   %d to %d\n", SHRT_MIN, SHRT_MAX);
     printf("The range of signed int is:     %d to %d\n", INT_MIN, INT_MAX);
     printf("The range of signed long is:    %ld to %ld\n", LONG_MIN, LONG_MAX);
-    printf("The range of signed float is:   %.1e to %.1e\n", -FLT_MAX, FLT_MAX);
-    printf("The range of signed double is:  %.1e to %.1e\n", -DBL_MAX, DBL_MAX);
+    printf("The range of signed float is:   %.1e to %.1e with %d digits of precision\n", -FLT_MAX, FLT_MAX, FLT_DIG);
+    printf("The range of signed double is:  %.1e to %.1e with %d digits of precision\n", -DBL_MAX, DBL_MAX, DBL_DIG);
 
     printf("\n");
 
