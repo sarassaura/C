@@ -12,6 +12,8 @@ long double fl();
 
 long double dfl();
 
+long double ldfl();
+
 int main() {
 
     printf("The range of signed char is:    -%lu to %lu\n", half(sizeof(char)), half(sizeof(char)) - 1);
@@ -20,7 +22,7 @@ int main() {
     printf("The range of signed long is:    -%lu to %lu\n", half(sizeof(long)), half(sizeof(long)) - 1);
     printf("The range of signed float is:   %.1Le to %.1Le\n", -fl(), fl());
     printf("The range of signed double is:   %.3Le to %.3Le\n", -dfl(), dfl());
-    printf("The range of signed long double is:   %.2Le to %.2Le\n", -LDBL_MAX, LDBL_MAX);
+    printf("The range of signed long double is:   %.2Le to %.2Le\n", -ldfl(), ldfl());
 
     // printf("The range of signed char is:    %d to %d\n", CHAR_MIN, CHAR_MAX);
     // printf("The range of signed short is:   %d to %d\n", SHRT_MIN, SHRT_MAX);
@@ -29,7 +31,7 @@ int main() {
     // printf("The range of signed float is:   %.1e to %.1e with %d digits of precision\n", -FLT_MAX, FLT_MAX, FLT_DIG);
     // printf("The range of signed double is:  %.1e to %.1e with %d digits of precision\n", -DBL_MAX, DBL_MAX, DBL_DIG);
     // printf("The range of signed long double is:  %Le to %Le with %d digits of precision\n", -LDBL_MAX, LDBL_MAX,
-    // LDBL_DIG);
+    //        LDBL_DIG);
 
     printf("\n");
 
@@ -78,3 +80,11 @@ unsigned long half(int size) {
 long double fl() { return pow2(127) * (2 - pow2(-23)); }
 
 long double dfl() { return pow2(1023) * (2 - pow2(-52)); }
+
+long double ldfl() {
+    long double first = pow2(16383);
+    long double second = pow2(-112);
+    int third = 2 - (int)second;
+    long double answer = first * 1.999999999999999;
+    return answer;
+}
