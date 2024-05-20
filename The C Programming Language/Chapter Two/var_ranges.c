@@ -24,14 +24,16 @@ int main() {
     printf("The range of signed double is:        -%.3e to %.3e\n", dfl(), dfl());
     printf("The range of signed long double is:   -%.4Le to %.4Le\n", ldfl(), ldfl());
 
-    // printf("The range of signed char is:    %d to %d\n", CHAR_MIN, CHAR_MAX);
-    // printf("The range of signed short is:   %d to %d\n", SHRT_MIN, SHRT_MAX);
-    // printf("The range of signed int is:     %d to %d\n", INT_MIN, INT_MAX);
-    // printf("The range of signed long is:    %ld to %ld\n", LONG_MIN, LONG_MAX);
-    // printf("The range of signed float is:   %.1e to %.1e with %d digits of precision\n", -FLT_MAX, FLT_MAX, FLT_DIG);
-    // printf("The range of signed double is:  %.1e to %.1e with %d digits of precision\n", -DBL_MAX, DBL_MAX, DBL_DIG);
-    // printf("The range of signed long double is:  %Le to %Le with %d digits of precision\n", -LDBL_MAX, LDBL_MAX,
-    //        LDBL_DIG);
+    // printf("The range of signed char is:         %d to %d\n", CHAR_MIN, CHAR_MAX);
+    // printf("The range of signed short is:        %d to %d\n", SHRT_MIN, SHRT_MAX);
+    // printf("The range of signed int is:          %d to %d\n", INT_MIN, INT_MAX);
+    // printf("The range of signed long is:         %ld to %ld\n", LONG_MIN, LONG_MAX);
+    // printf("The range of signed float is:        %.1e to %.1e with %d digits of precision\n", -FLT_MAX, FLT_MAX,
+    // FLT_DIG);
+    // printf("The range of signed double is:       %.1e to %.1e with %d digits of precision\n", -DBL_MAX,
+    // DBL_MAX, DBL_DIG);
+    // printf("The range of signed long double is:  %Le to %Le with %d digits of precision\n",
+    // -LDBL_MAX, LDBL_MAX, LDBL_DIG);
 
     printf("\n");
 
@@ -86,9 +88,7 @@ long double ldfl() {
     long double exp = pow2(16383);
     long double res = 0;
 
-    res -= exp / 51922968585348276;
-    res += exp;
-    res += exp;
+    res = (exp - (exp / 51922968585348276) + exp);
 
     return res;
 }
