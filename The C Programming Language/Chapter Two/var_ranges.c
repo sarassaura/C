@@ -8,21 +8,21 @@ unsigned long half(int size);
 
 long double pow2(int bits);
 
-long double fl();
+float fl();
 
-long double dfl();
+double dfl();
 
 long double ldfl();
 
 int main() {
 
-    printf("The range of signed char is:    -%lu to %lu\n", half(sizeof(char)), half(sizeof(char)) - 1);
-    printf("The range of signed short is:   -%lu to %lu\n", half(sizeof(short)), half(sizeof(short)) - 1);
-    printf("The range of signed int is:     -%lu to %lu\n", half(sizeof(int)), half(sizeof(int)) - 1);
-    printf("The range of signed long is:    -%lu to %lu\n", half(sizeof(long)), half(sizeof(long)) - 1);
-    printf("The range of signed float is:   %.1Le to %.1Le\n", -fl(), fl());
-    printf("The range of signed double is:   %.3Le to %.3Le\n", -dfl(), dfl());
-    printf("The range of signed long double is:   %.2Le to %.2Le\n", -ldfl(), ldfl());
+    printf("The range of signed char is:          -%lu to %lu\n", half(sizeof(char)), half(sizeof(char)) - 1);
+    printf("The range of signed short is:         -%lu to %lu\n", half(sizeof(short)), half(sizeof(short)) - 1);
+    printf("The range of signed int is:           -%lu to %lu\n", half(sizeof(int)), half(sizeof(int)) - 1);
+    printf("The range of signed long is:          -%lu to %lu\n", half(sizeof(long)), half(sizeof(long)) - 1);
+    printf("The range of signed float is:         -%.1e to %.1e\n", fl(), fl());
+    printf("The range of signed double is:        -%.3e to %.3e\n", dfl(), dfl());
+    printf("The range of signed long double is:   -%.4Le to %.4Le\n", ldfl(), ldfl());
 
     // printf("The range of signed char is:    %d to %d\n", CHAR_MIN, CHAR_MAX);
     // printf("The range of signed short is:   %d to %d\n", SHRT_MIN, SHRT_MAX);
@@ -51,15 +51,16 @@ int main() {
 long double pow2(int bits) {
 
     long double range = 1;
-    long double factor = 2;
 
     if (bits < 0) {
-        factor = 1 / 2;
         bits *= -1;
-    }
-
-    for (int i = 0; i < bits; i++) {
-        range *= factor;
+        for (int i = 0; i < bits; i++) {
+            range *= 0.5;
+        }
+    } else {
+        for (int i = 0; i < bits; i++) {
+            range *= 2;
+        }
     }
 
     return range;
@@ -77,14 +78,17 @@ unsigned long half(int size) {
     return pow2(bits - 1);
 }
 
-long double fl() { return pow2(127) * (2 - pow2(-23)); }
+float fl() { return pow2(127) * (2 - pow2(-23)); }
 
-long double dfl() { return pow2(1023) * (2 - pow2(-52)); }
+double dfl() { return pow2(1023) * (2 - pow2(-52)); }
 
 long double ldfl() {
-    long double first = pow2(16383);
-    long double second = pow2(-112);
-    int third = 2 - (int)second;
-    long double answer = first * 1.999999999999999;
-    return answer;
+    long double exp = pow2(16383);
+    long double res = 0;
+
+    res -= exp / 51922968585348276;
+    res += exp;
+    res += exp;
+
+    return res;
 }
