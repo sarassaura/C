@@ -2,6 +2,6 @@
 .clang-format
 
 The C Programming Language/*
-!The C Programming Language/*.c
+!The C Programming Language/*/*.c
 
 tempCodeRunnerFile.c
